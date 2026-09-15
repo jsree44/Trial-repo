@@ -1,0 +1,348 @@
+.admin-management-page {
+  min-height: 100vh;
+  padding: 30px;
+  box-sizing: border-box;
+  background: #f8f6f2;
+}
+
+
+/* Header */
+
+.admin-management-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.admin-management-header h1 {
+  margin: 0;
+
+  font-size: 30px;
+
+  color: #29251f;
+}
+
+.admin-management-header p {
+  margin-top: 6px;
+
+  color: #777;
+}
+
+
+/* Create button */
+
+.create-admin-btn {
+  border: none;
+
+  background: #29251f;
+
+  color: white;
+
+  padding: 12px 18px;
+
+  border-radius: 9px;
+
+  cursor: pointer;
+
+  font-size: 14px;
+
+  transition: transform 0.2s ease;
+}
+
+.create-admin-btn:hover {
+  transform: translateY(-2px);
+}
+
+
+/* Table */
+
+.admin-table-container {
+  background: white;
+
+  border-radius: 14px;
+
+  padding: 20px;
+
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+
+  border-collapse: collapse;
+
+  min-width: 850px;
+}
+
+th {
+  padding: 14px;
+
+  text-align: left;
+
+  font-size: 13px;
+
+  color: #777;
+
+  border-bottom: 1px solid #eee;
+}
+
+td {
+  padding: 16px 14px;
+
+  font-size: 14px;
+
+  color: #333;
+
+  border-bottom: 1px solid #f0f0f0;
+}
+
+
+/* Role */
+
+.role-badge {
+  background: #eee9df;
+
+  color: #62584b;
+
+  padding: 6px 10px;
+
+  border-radius: 20px;
+
+  font-size: 12px;
+
+  font-weight: 600;
+}
+
+
+/* Status */
+
+.admin-status {
+  padding: 6px 10px;
+
+  border-radius: 20px;
+
+  font-size: 12px;
+
+  font-weight: 600;
+}
+
+.admin-status.active {
+  background: #e8f5e9;
+
+  color: #287a3d;
+}
+
+.admin-status.inactive {
+  background: #fde8e8;
+
+  color: #a52a2a;
+}
+
+
+/* Actions */
+
+.admin-actions {
+  display: flex;
+
+  gap: 7px;
+}
+
+.admin-actions button {
+  border: none;
+
+  padding: 7px 10px;
+
+  border-radius: 7px;
+
+  cursor: pointer;
+
+  font-size: 12px;
+}
+
+.view-btn {
+  background: #eee9df;
+
+  color: #29251f;
+}
+
+.edit-btn {
+  background: #e7eef8;
+
+  color: #315b89;
+}
+
+.delete-btn {
+  background: #fde8e8;
+
+  color: #a52a2a;
+}
+
+
+/* Modal */
+
+.modal-overlay {
+  position: fixed;
+
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.45);
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  z-index: 2000;
+}
+
+.admin-modal {
+  width: 450px;
+
+  max-width: calc(100% - 40px);
+
+  max-height: 90vh;
+
+  overflow-y: auto;
+
+  background: white;
+
+  border-radius: 16px;
+
+  padding: 25px;
+
+  box-sizing: border-box;
+}
+
+
+/* Modal header */
+
+.modal-header {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  margin-bottom: 20px;
+}
+
+.modal-header h2 {
+  margin: 0;
+
+  color: #29251f;
+}
+
+.close-btn {
+  border: none;
+
+  background: none;
+
+  font-size: 26px;
+
+  cursor: pointer;
+
+  color: #777;
+}
+
+
+/* Form */
+
+.admin-modal form {
+  display: flex;
+
+  flex-direction: column;
+}
+
+.admin-modal label {
+  margin-bottom: 6px;
+
+  margin-top: 12px;
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  color: #555;
+}
+
+.admin-modal input,
+.admin-modal select {
+  padding: 11px;
+
+  border: 1px solid #ddd;
+
+  border-radius: 8px;
+
+  outline: none;
+
+  font-size: 14px;
+
+  box-sizing: border-box;
+}
+
+.admin-modal input:focus,
+.admin-modal select:focus {
+  border-color: #8c806d;
+}
+
+
+/* Save */
+
+.save-admin-btn {
+  margin-top: 22px;
+
+  border: none;
+
+  background: #29251f;
+
+  color: white;
+
+  padding: 12px;
+
+  border-radius: 8px;
+
+  cursor: pointer;
+
+  font-size: 14px;
+}
+
+
+/* Details */
+
+.admin-details {
+  line-height: 1.8;
+
+  color: #555;
+}
+
+.admin-details p {
+  padding: 10px 0;
+
+  margin: 0;
+
+  border-bottom: 1px solid #eee;
+}
+
+
+/* Mobile */
+
+@media (max-width: 700px) {
+
+  .admin-management-page {
+
+    padding: 20px;
+  }
+
+  .admin-management-header {
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 15px;
+  }
+
+}

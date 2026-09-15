@@ -1,0 +1,476 @@
+/* Everything visual (colors, stat cards, toolbar, badges, modal) lives in
+   AdminShared.css. This file only sets the one thing that's genuinely
+   specific to this page: how many columns the list has and how wide
+   each one is. */
+/* ==========================================================================
+   Shared Admin UI — the visual system from the Referrals page,
+   pulled out so every admin page can reuse it instead of
+   re-declaring the same styles.
+
+   HOW TO USE:
+   1. Import this file FIRST in any admin page's .jsx:
+        import "../../styles/AdminShared.css";
+        import "./Customers.css"; // page-specific bits only
+   2. Use the "adm-" classes below for anything generic:
+        page wrapper, header, stat cards, toolbar, list rows,
+        badges, buttons, modal.
+   3. Each page still needs a SMALL page-specific CSS file for the
+      one thing that genuinely differs per page: how many columns
+      its list has. See the bottom of this file for that pattern.
+   ========================================================================== */
+
+:root {
+  --adm-bg: #f5f6f8;
+  --adm-surface: #ffffff;
+  --adm-border: #e5e7eb;
+  --adm-text: #1b1f27;
+  --adm-text-secondary: #667085;
+  --adm-text-tertiary: #98a2b3;
+  --adm-dark: #29251f;
+  --adm-accent-bg: #f5f1eb;
+  --adm-radius: 10px;
+  --adm-radius-sm: 7px;
+}
+
+/* Page wrapper */
+
+.adm-page {
+  min-height: 100vh;
+  padding: 30px;
+  box-sizing: border-box;
+  background: var(--adm-bg);
+  color: var(--adm-text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto,
+    sans-serif;
+}
+
+.adm-page * {
+  box-sizing: border-box;
+}
+
+/* Header */
+
+.adm-header {
+  margin-bottom: 22px;
+}
+
+.adm-header h1 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 600;
+  color: #111;
+}
+
+.adm-header p {
+  margin: 5px 0 0;
+  font-size: 13px;
+  color: var(--adm-text-secondary);
+}
+
+/* Stat cards */
+
+.adm-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.adm-stat-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 17px;
+  background: var(--adm-surface);
+  border: 1px solid var(--adm-border);
+  border-radius: var(--adm-radius);
+}
+
+.adm-stat-icon {
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background: var(--adm-accent-bg);
+  color: var(--adm-dark);
+}
+
+.adm-stat-card div:last-child {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.adm-stat-card span {
+  font-size: 10px;
+  color: var(--adm-text-tertiary);
+}
+
+.adm-stat-card strong {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--adm-dark);
+}
+
+/* Toolbar */
+
+.adm-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+
+.adm-search {
+  width: 300px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 11px;
+  background: var(--adm-surface);
+  border: 1px solid var(--adm-border);
+  border-radius: var(--adm-radius-sm);
+  color: var(--adm-text-tertiary);
+}
+
+.adm-search input {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 12px;
+  font-family: inherit;
+  color: var(--adm-text);
+}
+
+.adm-filter {
+  padding: 8px 11px;
+  border: 1px solid var(--adm-border);
+  border-radius: var(--adm-radius-sm);
+  background: var(--adm-surface);
+  font-size: 12px;
+  font-family: inherit;
+  color: var(--adm-text);
+  outline: none;
+  cursor: pointer;
+}
+
+.adm-toolbar-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 11px;
+  border: 1px solid var(--adm-border);
+  border-radius: var(--adm-radius-sm);
+  background: var(--adm-surface);
+  color: #555;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.adm-toolbar-icon-btn:hover {
+  background: #f8f5f0;
+}
+
+.adm-count {
+  margin-left: auto;
+  font-size: 12px;
+  color: var(--adm-text-tertiary);
+}
+
+/* Bulk action bar */
+
+.adm-bulk-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  padding: 10px 16px;
+  background: #f8f5f0;
+  border: 1px solid #e4dfd5;
+  border-radius: 8px;
+  font-size: 12px;
+  color: #66543d;
+}
+
+.adm-bulk-bar button {
+  padding: 6px 11px;
+  border: 1px solid #d8d2c8;
+  border-radius: 6px;
+  background: white;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--adm-dark);
+}
+
+.adm-bulk-bar .adm-bulk-clear {
+  margin-left: auto;
+  border-color: transparent;
+  background: transparent;
+  color: var(--adm-text-tertiary);
+}
+
+/* List / rows — column widths are page-specific, see bottom of file */
+
+.adm-list {
+  background: var(--adm-surface);
+  border: 1px solid var(--adm-border);
+  border-radius: var(--adm-radius);
+  overflow: hidden;
+}
+
+.adm-list-header,
+.adm-row {
+  display: grid;
+  align-items: center;
+  column-gap: 14px;
+  padding: 0 18px;
+}
+
+.adm-list-header {
+  min-height: 43px;
+  background: #fafafa;
+  border-bottom: 1px solid var(--adm-border);
+  color: var(--adm-text-tertiary);
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.adm-row {
+  min-height: 62px;
+  border-bottom: 1px solid var(--adm-border);
+  transition: background 0.15s ease;
+}
+
+.adm-row:last-child {
+  border-bottom: none;
+}
+
+.adm-row:hover {
+  background: #fbfaf8;
+}
+
+.adm-row strong {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--adm-dark);
+}
+
+.adm-row-secondary {
+  font-size: 11px;
+  color: var(--adm-text-tertiary);
+}
+
+.adm-sortable-header {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.adm-sortable-header svg {
+  opacity: 0.4;
+}
+
+.adm-sortable-header svg.sort-active {
+  opacity: 1;
+  color: var(--adm-dark);
+}
+
+/* Badges */
+
+.adm-badge {
+  display: inline-flex;
+  width: fit-content;
+  padding: 5px 8px;
+  border-radius: 6px;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.adm-badge.active,
+.adm-badge.completed,
+.adm-badge.delivered {
+  background: #ecfdf3;
+  color: #027a48;
+}
+
+.adm-badge.inactive {
+  background: #fde8e8;
+  color: #a52a2a;
+}
+
+.adm-badge.pending,
+.adm-badge.processing {
+  background: #fef3e2;
+  color: #b54708;
+}
+
+.adm-view-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  width: fit-content;
+  padding: 7px 12px;
+  border: 1px solid #d8d2c8;
+  border-radius: 6px;
+  background: #f8f5f0;
+  color: var(--adm-dark);
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.adm-view-btn:hover {
+  background: #eee9e1;
+}
+
+.adm-empty {
+  padding: 35px;
+  text-align: center;
+  font-size: 12px;
+  color: var(--adm-text-tertiary);
+}
+
+/* Modal */
+
+.adm-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.adm-modal {
+  width: 100%;
+  max-width: 480px;
+  padding: 25px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.18);
+}
+
+.adm-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-bottom: 17px;
+  border-bottom: 1px solid var(--adm-border);
+}
+
+.adm-modal-header span {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--adm-text-tertiary);
+}
+
+.adm-modal-header h2 {
+  margin: 5px 0 0;
+  font-size: 20px;
+  font-weight: 650;
+  color: #111;
+}
+
+.adm-modal-header button {
+  width: 31px;
+  height: 31px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 7px;
+  background: #f5f5f5;
+  color: #555;
+  cursor: pointer;
+}
+
+.adm-modal-header button:hover {
+  background: #e9e9e9;
+}
+
+.adm-info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  padding: 22px 0;
+}
+
+.adm-info-grid.cols-1 {
+  grid-template-columns: 1fr;
+}
+
+.adm-info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.adm-info-item span {
+  font-size: 10px;
+  color: var(--adm-text-tertiary);
+}
+
+.adm-info-item strong {
+  font-size: 12px;
+  font-weight: 550;
+  color: var(--adm-dark);
+}
+
+.adm-note {
+  padding: 12px;
+  background: #f8f6f2;
+  border-radius: 8px;
+  color: #666;
+  font-size: 13px;
+}
+
+/* Mobile */
+
+@media (max-width: 700px) {
+  .adm-page {
+    margin-left: 72px;
+    padding: 20px;
+  }
+
+  .adm-search {
+    width: 100%;
+  }
+
+  .adm-count {
+    margin-left: 0;
+  }
+}
+
+/* ==========================================================================
+   PAGE-SPECIFIC PART — every page still needs ~5 lines like this in its
+   own CSS file, because column count/widths genuinely differ per page.
+   Example for a page with 6 data columns + 1 action column:
+
+     .my-list-header,
+     .my-row {
+       grid-template-columns: 1fr 1.3fr 110px 110px 90px 90px 80px;
+     }
+
+   That's the only thing you still write per page. Everything else
+   above (colors, spacing, badges, modal, toolbar) is shared.
+   ========================================================================== */
+
+.customers-list-header,
+.customers-row {
+  grid-template-columns: 1fr 1.4fr 110px 110px 70px 90px 80px;
+}

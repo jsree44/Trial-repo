@@ -1,0 +1,503 @@
+.reviews-page {
+  min-height: 100vh;
+  padding: 30px;
+  box-sizing: border-box;
+  background: #f8f6f2;
+  color: #1b1f27;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Inter, Roboto, sans-serif;
+}
+
+.reviews-page * {
+  box-sizing: border-box;
+}
+
+
+/* =========================
+   Header
+========================= */
+
+.reviews-header {
+  margin-bottom: 22px;
+}
+
+.reviews-header h1 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 600;
+  color: #111;
+}
+
+.reviews-header p {
+  margin: 5px 0 0;
+  font-size: 13px;
+  color: #667085;
+}
+
+
+/* =========================
+   Tabs
+========================= */
+
+.review-tabs {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.review-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  padding: 8px 14px;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 7px;
+
+  background: white;
+  color: #122245;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.review-tab:hover {
+  transform: translateY(-1px);
+  background: #f8f5f0;
+}
+
+.review-tab.active {
+  background: #29251f;
+  border-color: #29251f;
+  color: white;
+}
+
+
+/* =========================
+   Product Highlight Cards
+========================= */
+
+.review-highlights {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.review-highlight-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  padding: 16px;
+
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.review-highlight-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(41, 37, 31, 0.06);
+}
+
+
+/* Highlight Image */
+
+.highlight-image {
+  width: 90px;
+  height: 90px;
+
+  flex-shrink: 0;
+
+  border-radius: 8px;
+  overflow: hidden;
+
+  background: #f5f1eb;
+}
+
+.highlight-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+/* Highlight Content */
+
+.highlight-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.highlight-label {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #1f4992;
+}
+
+.highlight-content h3 {
+  margin: 2px 0;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  color: #29251f;
+}
+
+.highlight-rating {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.highlight-rating span {
+  font-size: 13px;
+  letter-spacing: 1px;
+  color: #c59d45;
+}
+
+.highlight-rating strong {
+  font-size: 12px;
+  color: #29251f;
+}
+
+.highlight-content p {
+  margin: 0;
+  font-size: 10px;
+  color: #98a2b3;
+}
+
+
+/* =========================
+   Reviews Container
+========================= */
+
+.reviews-container {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+
+/* =========================
+   Title
+========================= */
+
+.reviews-title {
+  padding: 18px 18px 14px;
+  margin: 0;
+}
+
+.reviews-title h2 {
+  margin: 0;
+
+  font-size: 16px;
+  font-weight: 600;
+
+  color: #29251f;
+}
+
+.reviews-title p {
+  margin: 4px 0 0;
+
+  font-size: 11px;
+  color: #98a2b3;
+}
+
+
+/* =========================
+   Table
+========================= */
+
+.reviews-container table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+
+/* Table Header */
+
+.reviews-container th {
+  height: 43px;
+  padding: 0 18px;
+
+  text-align: left;
+
+  background: #fafafa;
+  border-bottom: 1px solid #e5e7eb;
+
+  color: #98a2b3;
+
+  font-size: 10px;
+  font-weight: 600;
+
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+
+/* Table Rows */
+
+.reviews-container tbody tr {
+  height: 70px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.reviews-container tbody tr:last-child {
+  border-bottom: none;
+}
+
+.reviews-container tbody tr:hover {
+  background: #fbfaf8;
+}
+
+
+/* Table Information */
+
+.reviews-container td {
+  height: 70px;
+  padding: 0 18px;
+
+  vertical-align: middle;
+
+  font-size: 12px;
+  font-weight: 400;
+
+  color: #667085;
+}
+
+
+/* Main Text */
+
+.reviews-container td strong {
+  font-size: 12px;
+  font-weight: 550;
+  color: #29251f;
+}
+
+
+/* Secondary Text */
+
+.reviews-container td span {
+  font-size: 10px;
+  color: #98a2b3;
+}
+
+
+/* =========================
+   Product Image + Details
+========================= */
+
+.review-product {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.review-product-image {
+  width: 42px;
+  height: 42px;
+
+  flex-shrink: 0;
+
+  border-radius: 7px;
+
+  object-fit: cover;
+
+  background: #f5f1eb;
+}
+
+.review-product-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+
+  min-width: 0;
+}
+
+.review-product-info strong {
+  font-size: 12px;
+  font-weight: 550;
+  color: #29251f;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.review-product-info span {
+  font-size: 10px;
+  color: #98a2b3;
+}
+
+
+/* =========================
+   Column Widths
+========================= */
+
+/* Customer */
+
+.reviews-container th:nth-child(1),
+.reviews-container td:nth-child(1) {
+  width: 15%;
+}
+
+
+/* Product */
+
+.reviews-container th:nth-child(2),
+.reviews-container td:nth-child(2) {
+  width: 22%;
+}
+
+
+/* Rating */
+
+.reviews-container th:nth-child(3),
+.reviews-container td:nth-child(3) {
+  width: 11%;
+}
+
+
+/* Review */
+
+.reviews-container th:nth-child(4),
+.reviews-container td:nth-child(4) {
+  width: 32%;
+}
+
+
+/* Date */
+
+.reviews-container th:nth-child(5),
+.reviews-container td:nth-child(5) {
+  width: 10%;
+}
+
+
+/* Action */
+
+.reviews-container th:nth-child(6),
+.reviews-container td:nth-child(6) {
+  width: 10%;
+}
+
+
+/* =========================
+   Stars
+========================= */
+
+.stars {
+  letter-spacing: 2px;
+  font-size: 13px;
+  color: #c59d45;
+  white-space: nowrap;
+}
+
+
+/* =========================
+   Review Text
+========================= */
+
+.review-text {
+  font-size: 11px;
+  line-height: 1.4;
+  color: #667085;
+}
+
+
+/* =========================
+   Delete Button
+========================= */
+
+.delete-review-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 7px 11px;
+
+  border: 1px solid #f0d2d2;
+  border-radius: 6px;
+
+  background: #fff1f0;
+  color: #b42318;
+
+  font-size: 11px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.delete-review-btn:hover {
+  background: #fde8e8;
+  transform: translateY(-1px);
+}
+
+
+/* =========================
+   Empty State
+========================= */
+
+.review-empty {
+  padding: 35px;
+
+  text-align: center;
+
+  font-size: 12px;
+  color: #98a2b3;
+}
+
+
+/* =========================
+   Mobile
+========================= */
+
+@media (max-width: 700px) {
+
+  .reviews-page {
+    margin-left: 70px;
+    padding: 20px;
+  }
+
+  .review-tabs {
+    flex-wrap: wrap;
+  }
+
+  .review-highlights {
+    grid-template-columns: 1fr;
+  }
+
+  .review-highlight-card {
+    padding: 14px;
+  }
+
+  .reviews-container {
+    overflow-x: auto;
+  }
+
+  .reviews-container table {
+    min-width: 750px;
+  }
+}
